@@ -1,8 +1,24 @@
-# React + Vite
+# Loader Template 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto para simular un loader o tiempo de carga en el inicio 
 
-Currently, two official plugins are available:
+## Tecnologías Utilizadas   
+- **React**: Biblioteca de JavaScript para construir interfaces de usuario.
+- **Vite**: Herramienta de construcción rápida para proyectos web modernos.
+- **GSAP**: Biblioteca de animación de JavaScript de alto rendimiento.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalación
+
+1. Clona el proyecto:
+    ```bash
+    git clone https://github.com/javiermedinaj/loader-gsap
+    ```
+
+2. Instala las dependencias:
+    ```bash
+    cd loader-gsap
+    npm install
+
+    
+    npm run dev
+    ```
