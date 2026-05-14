@@ -65,7 +65,7 @@ const Loader = ({ onComplete }) => {
           ].map((id, index) => (
             <div key={index} className="loader_gallery_figure">
               <img
-                src={`/loader-assets/${id}.jpg`}
+                src={`/loader-assets/${id}.webp`}
                 alt=""
                 className="loader_gallery_image"
               />

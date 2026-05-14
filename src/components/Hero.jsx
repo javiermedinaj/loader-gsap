@@ -24,7 +24,7 @@ const Hero = () => {
     <section className="hero" ref={heroRef}>
       <div className="hero_image-frame">
         <img
-          src="/loader-assets/QmdgCNQTnzWBX2Ym55cvkPQjXrGVTjAwJzbPV3WVGw7tUf.jpg"
+          src="/loader-assets/QmdgCNQTnzWBX2Ym55cvkPQjXrGVTjAwJzbPV3WVGw7tUf.webp"
           alt=""
           className="hero_bg-image"
         />
