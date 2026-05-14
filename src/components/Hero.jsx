@@ -1,50 +1,65 @@
-import React, { useEffect } from 'react';
-import './Hero.css';
-import gsap from 'gsap';
+import React, { useEffect, useRef } from "react";
+import "./Hero.css";
 
 const Hero = () => {
-    useEffect(() => {
-        const headingTitle = document.querySelector('.hero_heading_title');
-        const headingTitleChars = document.querySelectorAll('.hero_heading_title > h1');
-        const subheadingTitle = document.querySelector('.hero_subheading_title');
-        const subheadingTitleChars = document.querySelectorAll('.hero_subheading_title > h2');
+  const heroRef = useRef(null);
 
-        gsap.set([headingTitle, subheadingTitle], { yPercent: -250, rotate: -15 });
-        gsap.set([headingTitleChars, subheadingTitleChars], { yPercent: -100 });
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
 
-        gsap.timeline({ defaults: { duration: 3.2, ease: 'expo.inOut' } })
-            .to([headingTitle, subheadingTitle], { yPercent: 0, rotate: 0 })
-            .to([headingTitleChars, subheadingTitleChars], { yPercent: 0, stagger: 0.05 }, 0);
-    }, []);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const img = hero.querySelector(".hero_bg-image");
+      if (img) {
+        img.style.transform = `scale(1.05) translateY(${scrollY * 0.15}px)`;
+      }
+    };
 
-    return (
-        <div className="hero">
-            <div className="hero_wrapper">
-                <div className="hero_heading">
-                    <div className="hero_heading_title">
-                        <h1>S</h1>
-                        <h1>u</h1>
-                        <h1>m</h1>
-                        <h1>m</h1>
-                        <h1>i</h1>
-                    </div>
-                </div>
-                <div className="hero_subheading">
-                    <div className="hero_subheading_title">
-                        <h2>D</h2>
-                        <h2>i</h2>
-                        <h2>r</h2>
-                        <h2>e</h2>
-                        <h2>c</h2>
-                        <h2>t</h2>
-                        <h2>o</h2>
-                        <h2>r</h2>
-                        <h2>s</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <section className="hero" ref={heroRef}>
+      <div className="hero_image-frame">
+        <img
+          src="/loader-assets/QmdgCNQTnzWBX2Ym55cvkPQjXrGVTjAwJzbPV3WVGw7tUf.jpg"
+          alt=""
+          className="hero_bg-image"
+        />
+      </div>
+
+      <div className="hero_overlay"></div>
+      <div className="hero_vignette"></div>
+      <div className="hero_noise"></div>
+
+      <div className="hero_accent-line"></div>
+
+      <div className="hero_content">
+        <h1 className="hero_title">
+          <span className="hero_title-line" data-reveal>
+            Say Bye To
+          </span>
+          <span className="hero_title-line" data-reveal>
+            <em className="hero_title-word">Dull</em>{" "}
+            <span className="hero_title-word hero_title-word--secondary">
+              Doodles
+            </span>
+          </span>
+        </h1>
+
+        <p className="hero_desc" data-reveal>
+          The best free illustrations, 3D renders, and royalty-free doodles.
+          Powered by robots everywhere.
+        </p>
+
+        <a href="#products" className="hero_cta" data-reveal>
+          <span className="hero_cta-text">View Our Work</span>
+        </a>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;

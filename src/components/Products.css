@@ -1,0 +1,230 @@
+.products {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--primary);
+    padding: 12rem 5rem;
+    z-index: 300;
+}
+
+.products_wrapper {
+    max-width: 160rem;
+    margin: 0 auto;
+}
+
+.products_header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    margin-bottom: 8rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.products_title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--secondary);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+}
+
+.products_title_line {
+    display: block;
+}
+
+.products_title_accent {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.products_subtitle {
+    font-size: 1.8rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 50rem;
+}
+
+.products_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.product_card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 2.4rem;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.product_card:hover {
+    transform: translateY(-1.2rem);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.3);
+}
+
+.product_card_image-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.product_card_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.product_card:hover .product_card_image {
+    transform: scale(1.08);
+}
+
+.product_card_overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11, 11, 11, 0.8) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.product_card:hover .product_card_overlay {
+    opacity: 1;
+}
+
+.product_card_content {
+    padding: 3rem;
+}
+
+.product_card_meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.product_card_tag {
+    font-size: 1rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.product_card_arrow {
+    width: 4rem;
+    height: 4rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.product_card:hover .product_card_arrow {
+    background: var(--accent);
+    transform: rotate(45deg);
+}
+
+.product_card_arrow svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    stroke: var(--secondary);
+}
+
+.product_card_title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 0;
+    text-transform: none;
+    letter-spacing: -0.01em;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1200px) {
+    .products_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .products_header {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .products {
+        padding: 10rem 3rem;
+    }
+    .products_header {
+        gap: 2.5rem;
+        margin-bottom: 5rem;
+        padding-bottom: 3rem;
+    }
+    .products_title {
+        font-size: 9rem;
+    }
+    .products_subtitle {
+        font-size: 2.4rem;
+        max-width: 100%;
+    }
+    .products_grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    .product_card_content {
+        padding: 2.5rem;
+    }
+    .product_card_title {
+        font-size: 3.5rem;
+    }
+    .product_card_tag {
+        font-size: 2rem;
+    }
+    .product_card_arrow {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+    .product_card_arrow svg {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .products {
+        padding: 8rem 2rem;
+    }
+    .products_title {
+        font-size: 7.5rem;
+    }
+    .products_subtitle {
+        font-size: 2.2rem;
+    }
+    .product_card_content {
+        padding: 2rem;
+    }
+    .product_card_title {
+        font-size: 3.2rem;
+    }
+    .product_card_tag {
+        font-size: 1.8rem;
+    }
+    .product_card_arrow {
+        width: 4rem;
+        height: 4rem;
+    }
+    .product_card_meta {
+        margin-bottom: 1rem;
+    }
+}
